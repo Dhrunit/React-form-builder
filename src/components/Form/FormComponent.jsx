@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, FormControl, Input } from '@mui/material'
 import { useHistory } from 'react-router-dom'
 import { ButtonContainer, FormHead, FormTitleInput } from './style'
@@ -8,6 +8,7 @@ import { addQuestion, saveFormAction, updateForm } from '../../reducers/actions'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function FormComponent() {
+	const [error, setError] = useState([])
 	const formState = useSelector((state) => {
 		return state.form
 	})
@@ -53,12 +54,39 @@ export default function FormComponent() {
 		prevState.questions = form
 		setFormState({ ...prevState })
 	}
+	const saveForm = () => {
+		const error = []
+		if (!formState.formTitle.trim()) {
+			error.push('TitleEmpty')
+		}
+		if (!formState.formDescription.trim()) {
+			error.push('DescEmpty')
+		}
+		formState.questions.forEach((que, idx) => {
+			if (que.questionTitle.trim() === '') {
+				error.push(`QuestionEmpty${idx}`)
+			}
+			if (que.questionType !== 'Paragraph') {
+				que.options.forEach((option, idxoption) => {
+					if (option.label.trim() === '') {
+						error.push(`optionEmpty${idxoption}${idx}`)
+					}
+				})
+			}
+		})
+		if (error.length > 0) {
+			setError(error)
+		} else {
+			setError([])
+			dispatch(saveFormAction(formState))
+		}
+	}
 	const history = useHistory()
 	const { questions, showLoader, url } = formState
 
 	return (
 		<>
-			<FormHead elevation={0}>
+			<FormHead elevation={0} sx={{ marginBottom: '2rem' }}>
 				{/* {showLoader && 'Loading'}
 				{url} */}
 				<FormControl
@@ -68,11 +96,13 @@ export default function FormComponent() {
 					<FormTitleInput
 						onChange={(e) => handleChange(e, 'formTitle')}
 						placeholder='Form Title'
+						error={error.includes('TitleEmpty')}
 					/>
 				</FormControl>
 				<FormControl fullWidth variant='standard'>
 					<Input
 						placeholder='Form Descripton'
+						error={error.includes('DescEmpty')}
 						onChange={(e) => handleChange(e, 'formDescription')}
 					/>
 				</FormControl>
@@ -80,6 +110,7 @@ export default function FormComponent() {
 			{questions.map((formValue, idx) => (
 				<>
 					<QuestionForm
+						error={error}
 						index={idx}
 						addNewOptionHandler={addNewOptionHandler}
 						handleOptionsChange={handleOptionsChange}
@@ -104,7 +135,7 @@ export default function FormComponent() {
 				<Button
 					variant='contained'
 					color='secondary'
-					onClick={() => dispatch(saveFormAction(formState))}>
+					onClick={() => saveForm()}>
 					{showLoader ? 'Saving' : 'Save'}
 				</Button>
 			</ButtonContainer>

@@ -15,6 +15,7 @@ import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked'
 import { FormHead, FormQuestionContainer, QuestionInput } from './style'
 import DeleteIcon from '@mui/icons-material/Delete'
 function QuestionForm({
+	error,
 	formValue,
 	handleChange,
 	handleDelete,
@@ -50,6 +51,7 @@ function QuestionForm({
 				<FormControl fullWidth variant='standard'>
 					<QuestionInput
 						placeholder='Question Title'
+						error={error.includes(`QuestionEmpty${index}`)}
 						onChange={(e) =>
 							handleChange(e, 'questionTitle', index)
 						}
@@ -74,7 +76,10 @@ function QuestionForm({
 						<>
 							<FormControl fullWidth variant='standard'>
 								<Input
-									placeholder={`Option 1`}
+									error={error.includes(
+										`optionEmpty${optionIndex}${index}`
+									)}
+									placeholder={`Option ${optionIndex}`}
 									sx={{ marginTop: 2 }}
 									onChange={(e) =>
 										handleOptionsChange(
@@ -107,7 +112,10 @@ function QuestionForm({
 							<FormControl fullWidth variant='standard'>
 								<Input
 									sx={{ marginTop: 2 }}
-									placeholder='MultipleChoice'
+									error={error.includes(
+										`optionEmpty${optionIndex}${index}`
+									)}
+									placeholder={`Option ${optionIndex}`}
 									onChange={(e) =>
 										handleOptionsChange(
 											e,
