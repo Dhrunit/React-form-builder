@@ -13,6 +13,7 @@ export const HomePageContainer = styled.div`
 
 export const StyledLink = styled(Link)`
 	color: black;
+	text-decoration: none;
 `
 export const LinkContainer = styled.div`
 	display: flex;

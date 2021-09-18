@@ -6,10 +6,9 @@ export default function HomePage() {
 	return (
 		<>
 			<LinkContainer>
-				<StyledLink to='/asdas'>TEst</StyledLink>
-				<StyledLink to='/asdas'>Create Form</StyledLink>
-				<StyledLink to='/asdas'>View Form</StyledLink>
-				<StyledLink to='/asdas'>Docs</StyledLink>
+				<StyledLink to='/CreateForm'>Create Form</StyledLink>
+				<StyledLink to='/ViewForm'>View Form</StyledLink>
+				<StyledLink to='/Docs'>Docs</StyledLink>
 			</LinkContainer>
 			<HomePageContainer>
 				<Typography variant='h2'>Form Builder</Typography>
