@@ -22,7 +22,13 @@ export const ButtonContainer = styled.div`
 
 export const FormQuestionContainer = styled.div`
 	display: flex;
+	justify-content: space-between;
 	p {
 		margin: 1rem 0;
 	}
+`
+
+export const QuestionInput = styled(Input)`
+	height: 4rem;
+	font-size: 20px !important;
 `
