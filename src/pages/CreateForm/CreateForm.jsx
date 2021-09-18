@@ -1,9 +1,10 @@
-import React from 'react'
+import { FormComponent } from '../../components/Form'
+import { CreateFormContainer, FormHead } from './style'
 
 export default function CreateForm() {
-    return (
-        <div>
-            Create form
-        </div>
-    )
+	return (
+		<CreateFormContainer>
+			<FormComponent />
+		</CreateFormContainer>
+	)
 }
