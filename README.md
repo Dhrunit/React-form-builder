@@ -4,7 +4,7 @@ To get started follow the following steps
 2. npm install in the folder
 3. npm start
 
-The app is live at
+The app is live at https://hungry-leavitt-5190ca.netlify.app/
 
 Architecture
 

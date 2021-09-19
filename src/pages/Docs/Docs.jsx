@@ -51,9 +51,11 @@ function Docs() {
 					</li>
 				</ul>
 				<div style={{ textAlign: 'center', marginTop: '3rem' }}>
-					<a href='https://github.com/Dhrunit/React-form-builder'>
-						Github link
-					</a>
+					<div style={{ margin: '1rem' }}>
+						<a href='https://github.com/Dhrunit/React-form-builder'>
+							Github link
+						</a>
+					</div>
 					<Button
 						variant='contained'
 						onClick={() => history.push('/')}>
