@@ -47,20 +47,19 @@ function ViewForm() {
 			{!loading &&
 				formData.length > 0 &&
 				formData.map((forms) => (
-					<Link key={forms.id} to={`/ShowLink/${forms.id}`}>
-						<Paper
-							sx={{
-								textDecoration: 'none',
-								height: '100px',
-								width: '50%',
-								margin: '1rem auto',
-								padding: 1,
-								textAlign: 'center',
-							}}>
-							<h2>Title: {forms.formTitle}</h2>
-							<p>Description: {forms.formDescription}</p>
-						</Paper>
-					</Link>
+					<Paper
+						key={forms.id}
+						sx={{
+							textDecoration: 'none',
+							height: '100px',
+							width: '50%',
+							margin: '1rem auto',
+							padding: 1,
+							textAlign: 'center',
+						}}>
+						<h2>Title: {forms.formTitle}</h2>
+						<p>Description: {forms.formDescription}</p>
+					</Paper>
 				))}
 			{!loading && formData.length === 0 && (
 				<div
