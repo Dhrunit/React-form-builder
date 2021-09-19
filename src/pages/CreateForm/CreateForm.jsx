@@ -1,5 +1,5 @@
 import { FormComponent } from '../../components/Form'
-import { CreateFormContainer, FormHead } from './style'
+import { CreateFormContainer } from './style'
 
 export default function CreateForm() {
 	return (

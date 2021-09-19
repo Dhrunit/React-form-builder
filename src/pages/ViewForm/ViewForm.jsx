@@ -47,7 +47,7 @@ function ViewForm() {
 			{!loading &&
 				formData.length > 0 &&
 				formData.map((forms) => (
-					<Link to={`/ShowLink/${forms.id}`}>
+					<Link key={forms.id} to={`/ShowLink/${forms.id}`}>
 						<Paper
 							sx={{
 								textDecoration: 'none',

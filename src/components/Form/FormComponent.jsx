@@ -86,7 +86,7 @@ export default function FormComponent() {
 		}
 	}
 	const history = useHistory()
-	const { questions, showLoader, url } = formState
+	const { questions, showLoader } = formState
 
 	return (
 		<>
@@ -124,6 +124,7 @@ export default function FormComponent() {
 			{questions.map((formValue, idx) => (
 				<>
 					<QuestionForm
+						key={formValue.id}
 						error={error}
 						index={idx}
 						addNewOptionHandler={addNewOptionHandler}

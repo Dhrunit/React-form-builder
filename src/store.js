@@ -8,7 +8,6 @@ const reducers = combineReducers({
 	form: formReducer,
 })
 const sagaMiddleware = createSagaMiddleware()
-const middleware = [sagaMiddleware]
 
 const store = createStore(
 	reducers,

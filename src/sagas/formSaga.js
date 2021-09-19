@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { setFormURL, showLoader } from '../reducers/actions'
 import { SAVE_FORM } from '../reducers/actionTypes'
 import { saveForm } from '../services/formServices'

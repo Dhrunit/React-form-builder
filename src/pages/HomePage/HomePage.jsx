@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
 import { HomePageContainer, LinkContainer, StyledLink } from './style'
 
 export default function HomePage() {

@@ -11,7 +11,7 @@ export const INITIAL_STATE = {
 			id: uuidv4(),
 			questionType: 'Paragraph',
 			questionTitle: '',
-			options: false,
+			showOptions: false,
 			paragraph: '',
 			options: [
 				{
@@ -46,7 +46,7 @@ export const getNewQuestion = (formState = {}) => {
 }
 
 export const addNewOption = (formState = {}) => {
-	console.log(formState)
+	// console.log(formState)
 	// return {
 	// 	...formState,
 	// 	questions: [
