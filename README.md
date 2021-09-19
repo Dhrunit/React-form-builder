@@ -16,7 +16,7 @@ Architecture
 
 Time Taken
 
-1. 3.5hrs to learn and practice Redux-saga
+1. 3.5hrs to learn and practice Redux-saga as I am new to it
 2. 4 hours to actually build the application
 
 Improvements
