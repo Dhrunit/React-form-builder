@@ -44,10 +44,6 @@ function Docs() {
 						The overall UI/UX can be improved by properly planning
 						the app UI wise
 					</li>
-					<li>
-						There is some code which can be refactored in an
-						efficient way.
-					</li>
 					<li>The code written can be made more modular</li>
 					<li>
 						Also a backend server could be setup which stores the
@@ -55,6 +51,9 @@ function Docs() {
 					</li>
 				</ul>
 				<div style={{ textAlign: 'center', marginTop: '3rem' }}>
+					<a href='https://github.com/Dhrunit/React-form-builder'>
+						Github link
+					</a>
 					<Button
 						variant='contained'
 						onClick={() => history.push('/')}>
