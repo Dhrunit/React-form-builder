@@ -56,6 +56,10 @@ function QuestionForm({
 							handleChange(e, 'questionTitle', index)
 						}
 					/>
+					<p style={{ color: 'red', marginTop: '0.5rem' }}>
+						{error.includes(`QuestionEmpty${index}`) &&
+							'Please Enter Question Title'}
+					</p>
 				</FormControl>
 				{formValue.questionType === 'Paragraph' && (
 					<FormControl fullWidth variant='standard'>
@@ -94,6 +98,15 @@ function QuestionForm({
 										</InputAdornment>
 									}
 								/>
+								<p
+									style={{
+										color: 'red',
+										marginTop: '0.5rem',
+									}}>
+									{error.includes(
+										`optionEmpty${optionIndex}${index}`
+									) && 'options cannot be empty'}
+								</p>
 							</FormControl>
 							{optionIndex + 1 === formValue.options.length && (
 								<IconButton
@@ -129,6 +142,15 @@ function QuestionForm({
 										</InputAdornment>
 									}
 								/>
+								<p
+									style={{
+										color: 'red',
+										marginTop: '0.5rem',
+									}}>
+									{error.includes(
+										`optionEmpty${optionIndex}${index}`
+									) && 'options cannot be empty'}
+								</p>
 							</FormControl>
 							{optionIndex + 1 === formValue.options.length && (
 								<IconButton

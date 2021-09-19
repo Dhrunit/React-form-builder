@@ -62,18 +62,22 @@ export default function FormComponent() {
 		if (!formState.formDescription.trim()) {
 			error.push('DescEmpty')
 		}
-		formState.questions.forEach((que, idx) => {
-			if (que.questionTitle.trim() === '') {
-				error.push(`QuestionEmpty${idx}`)
-			}
-			if (que.questionType !== 'Paragraph') {
-				que.options.forEach((option, idxoption) => {
-					if (option.label.trim() === '') {
-						error.push(`optionEmpty${idxoption}${idx}`)
-					}
-				})
-			}
-		})
+		if (formState.questions.length > 0) {
+			formState.questions.forEach((que, idx) => {
+				if (que.questionTitle.trim() === '') {
+					error.push(`QuestionEmpty${idx}`)
+				}
+				if (que.questionType !== 'Paragraph') {
+					que.options.forEach((option, idxoption) => {
+						if (option.label.trim() === '') {
+							error.push(`optionEmpty${idxoption}${idx}`)
+						}
+					})
+				}
+			})
+		} else {
+			error.push('QuestionsEmpty')
+		}
 		if (error.length > 0) {
 			setError(error)
 		} else {
@@ -98,6 +102,10 @@ export default function FormComponent() {
 						placeholder='Form Title'
 						error={error.includes('TitleEmpty')}
 					/>
+					<p style={{ color: 'red', marginTop: '0.5rem' }}>
+						{error.includes('TitleEmpty') &&
+							'Please Enter form Title'}
+					</p>
 				</FormControl>
 				<FormControl fullWidth variant='standard'>
 					<Input
@@ -105,6 +113,12 @@ export default function FormComponent() {
 						error={error.includes('DescEmpty')}
 						onChange={(e) => handleChange(e, 'formDescription')}
 					/>
+					<p style={{ color: 'red', marginTop: '0.5rem' }}>
+						{error.includes('DescEmpty') &&
+							'Please Enter form description'}{' '}
+						{error.includes('QuestionsEmpty') &&
+							'Please Add questions'}
+					</p>
 				</FormControl>
 			</FormHead>
 			{questions.map((formValue, idx) => (
